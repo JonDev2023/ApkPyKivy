@@ -137,6 +137,24 @@ class Lexer:
             return Token(TT_FLOAT, float(num_str))
 
 # ##################
+# NODES
+# ##################
+
+class NumberNode:
+    def __init__(self, tok):
+        self.tok = tok
+
+    def __repr__(self):
+        return f'{self.tok}'
+
+class BinOpNode:
+    def __init__(self, left_node, op_tok, right_node):
+        # 4:31 Parser
+        self.left_node = left_node
+        self.op_tok = op_tok
+        self.right_node = right_node
+
+# ##################
 # RUN
 # ##################
 
